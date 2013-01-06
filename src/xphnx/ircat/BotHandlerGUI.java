@@ -5,11 +5,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
+import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.text.JTextComponent;
 
 public class BotHandlerGUI extends JFrame implements ActionListener {
 	
@@ -17,6 +20,9 @@ public class BotHandlerGUI extends JFrame implements ActionListener {
 	public String channel = null;
 	public String network = null;
 	public String bot = null;
+	//Important stuff lies ahead!
+	JButton connectButton = null;
+	JButton disconnectButton = null;
 	
 	public BotHandlerGUI() {
 		setTitle(RandomTitle());
@@ -31,20 +37,23 @@ public class BotHandlerGUI extends JFrame implements ActionListener {
 		quitButton.setBounds(355, 605, 320, 50);
 		panel.add(quitButton);
 		//Connect button
-		JButton connectButton = new JButton("Connect");
+		connectButton = new JButton("Connect");
 		connectButton.setBounds(10, 605, 160, 50);
+		connectButton.setActionCommand("Connect");
 		panel.add(connectButton);
 		//Disconnect button
-		JButton disconnectButton = new JButton("Disconnect");
+		disconnectButton = new JButton("Disconnect");
 		disconnectButton.setBounds(175, 605, 160, 50);
+		disconnectButton.setEnabled(false);
+		disconnectButton.setActionCommand("Disconnect");
 		panel.add(disconnectButton);
 		//Bot selection radio buttons
 		//PokerBot select
 		JRadioButton pokerRadioButton = new JRadioButton("Poker");
-		pokerRadioButton.setActionCommand("p");
+		pokerRadioButton.setActionCommand("SetBotToPokerBot");
 		//Werewolf select
 		JRadioButton werewRadioButton = new JRadioButton("Werewolf");
-		werewRadioButton.setActionCommand("w");
+		werewRadioButton.setActionCommand("SetBotToWereWBot");
 		//Group the buttons
 		ButtonGroup botSelectGroup = new ButtonGroup();
 		botSelectGroup.add(pokerRadioButton);
@@ -59,8 +68,15 @@ public class BotHandlerGUI extends JFrame implements ActionListener {
 		botSelectPanel.setBounds(10, 40, 200, 30);
 		panel.add(botSelectPanel);
 		//Channel input box
-		
+		JTextField channelInputField = new JTextField("Channel Input");
+		channelInputField.setBounds(355, 60, 150, 20);
+		channelInputField.setActionCommand("ChannelInputCommand");
+		panel.add(channelInputField);
 		//Network input box
+		JTextField networkInputField = new JTextField("Network Input");
+		networkInputField.setBounds(355, 30, 150, 20);
+		networkInputField.setActionCommand("NetworkInputCommand");
+		panel.add(networkInputField);
 		
 	}
 
@@ -73,7 +89,23 @@ public class BotHandlerGUI extends JFrame implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e){
-		bot = e.getActionCommand();
+		if(e.getActionCommand() == "SetBotToPokerBot"){
+			bot = "PokerBot";
+		}else if(e.getActionCommand() == "SetBotToWereWBot"){
+			bot = "WereWBot";
+		}else if(e.getActionCommand() == "ChannelInputCommand"){
+			channel = ((JTextField) e.getSource()).getText();
+		}else if(e.getActionCommand() == "NetworkInputCommand"){
+			network = ((JTextField) e.getSource()).getText();
+		}else if(e.getActionCommand() == "Connect"){
+			connect = true;
+			disconnectButton.setEnabled(true);
+			connectButton.setEnabled(false);
+		}else if(e.getActionCommand() == "Disconnect"){
+			connect = false;
+			connectButton.setEnabled(true);
+			disconnectButton.setEnabled(false);
+		}
 	}
 
 }
