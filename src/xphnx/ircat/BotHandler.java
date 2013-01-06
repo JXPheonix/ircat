@@ -16,10 +16,24 @@ public class BotHandler {
 	public void gui() {
 		gui = new BotHandlerGUI();
 		gui.setVisible(true);
-		while(gui.connect == false){
-			//Wait!
-		}
+		waitForConnect();
+	}
+
+	private void waitForConnect() {
+		while(gui.connect == false){}
 		connect();
+		waitForDisconnect();
+	}
+
+	private void waitForDisconnect() {
+		while(gui.connect){}
+		disconnect();
+		waitForConnect();
+	}
+
+	private void disconnect() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	private void connect() {

@@ -58,8 +58,6 @@ public class BotHandlerGUI extends JFrame implements ActionListener {
 		ButtonGroup botSelectGroup = new ButtonGroup();
 		botSelectGroup.add(pokerRadioButton);
 		botSelectGroup.add(werewRadioButton);
-		//Listeners
-		pokerRadioButton.addActionListener(this);
 		//Give them their own panel
 		JPanel botSelectPanel = new JPanel(new GridLayout(0, 1));
 		botSelectPanel.add(pokerRadioButton);
@@ -77,7 +75,13 @@ public class BotHandlerGUI extends JFrame implements ActionListener {
 		networkInputField.setBounds(355, 30, 150, 20);
 		networkInputField.setActionCommand("NetworkInputCommand");
 		panel.add(networkInputField);
-		
+		//Listeners
+		connectButton.addActionListener(this);
+		disconnectButton.addActionListener(this);
+		pokerRadioButton.addActionListener(this);
+		werewRadioButton.addActionListener(this);
+		channelInputField.addActionListener(this);
+		networkInputField.addActionListener(this);
 	}
 
 	private String RandomTitle() {
