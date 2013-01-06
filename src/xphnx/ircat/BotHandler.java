@@ -1,6 +1,10 @@
 package xphnx.ircat;
 
 public class BotHandler {
+	
+	public BotHandler() {
+		gui();
+	}
 
 	public void inquire() {
 		// TODO Auto-generated method stub
