@@ -8,8 +8,8 @@ public class BotHandler {
 	}
 
 	public void gui() {
-		// TODO Auto-generated method stub
-		
+		BotHandlerGUI gui = new BotHandlerGUI();
+		gui.setVisible(true);
 	}
 
 }
