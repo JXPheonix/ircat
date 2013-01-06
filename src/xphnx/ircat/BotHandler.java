@@ -2,6 +2,8 @@ package xphnx.ircat;
 
 public class BotHandler {
 	
+	BotHandlerGUI gui = null;
+	
 	public BotHandler() {
 		gui();
 	}
@@ -12,8 +14,16 @@ public class BotHandler {
 	}
 
 	public void gui() {
-		BotHandlerGUI gui = new BotHandlerGUI();
+		gui = new BotHandlerGUI();
 		gui.setVisible(true);
+		while(gui.connect == false){
+			//Wait!
+		}
+		connect();
+	}
+
+	private void connect() {
+		
 	}
 
 }
