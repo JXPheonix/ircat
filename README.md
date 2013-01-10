@@ -1,8 +1,8 @@
 ircat
 =====
 
-- [s] Version 0.0.1 - Ircat can read messages. [/s]
-- [s] Version 0.0.2 - Ircat can echo. [/s]
+- <s> Version 0.0.1 - Ircat can read messages. </s>
+- <s> Version 0.0.2 - Ircat can echo. </s>
 - Version 0.1 - Ircat has a screen for selection of bot.
 - Version 0.2 - Ircat gets a poker bot.
 - Version 0.3 - Ircat gets a werewolf bot.
