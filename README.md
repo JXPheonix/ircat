@@ -1,11 +1,9 @@
 ircat
 =====
 
-- <s> Version 0.0.1 - Ircat can read messages. </s>
-- <s> Version 0.0.2 - Ircat can echo. </s>
-- Version 0.1 - Ircat has a screen for selection of bot.
-- Version 0.2 - Ircat gets a poker bot.
-- Version 0.3 - Ircat gets a werewolf bot.
-- Version 0.4 - Ircat gets a chatterbot.
-- Version 1 - Ircat is "complete" and bugfree.
-- Version 2 - Ircat supports custom bot addition.
+An IRC bot that (will) support:
+- GUI for handling the bot
+- Multiple default bots (a poker bot, a [werewolf](http://github.com/gluxon/phpwolf) bot, and a chatterbot)
+- Ability to support mutliple bots
+
+The bot uses [pircbot](http://jibble.org/pircbot). You will need it to run.
