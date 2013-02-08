@@ -29,14 +29,14 @@ public class PokerBot extends PircBot {
 				sendMessage(channel, "Not yet implemented");
 			}
 		}else if(message.equalsIgnoreCase(".iamnew")){
-			if(hasProfile(sender)){
-				sendMessage(channel, "You already have a profile!");
-			}else{
+			//if(hasProfile(sender)){
+				//sendMessage(channel, "You already have a profile!");
+			//}else{
 				numberofplayers++;
 				players[numberofplayers] = new Player(sender);
 				playnms[numberofplayers] = sender;
 				sendMessage(channel, "Welcome! Your profile is linked to your nickname, so to make a new profile simply change your nick and type .iamnew again.");
-			}
+			//}
 		}else if(message.equalsIgnoreCase(".join")){
 			if(chand == null){
 				sendMessage(channel, "No game is currently running! Try .poker");
@@ -56,12 +56,14 @@ public class PokerBot extends PircBot {
 			sendMessage(channel, ".bid placeholder");
 		}else if(message.startsWith(".c")){
 			sendMessage(channel, ".check placeholder");
+		}else if(message.startsWith(".getmyprofile")){
+			System.out.println(getProfile(sender));
 		}
 	}
 
 	private boolean hasProfile(String sender) {
 		for(int i = 0; i < (2^16); i++){
-			if(playnms[i] == sender){
+			if(players[i].playerlogin == sender){
 				return true;
 			}
 		}
@@ -70,7 +72,7 @@ public class PokerBot extends PircBot {
 	
 	private Player getProfile(String sender){
 		for(int i = 0; i < (2^16); i++){
-			if(playnms[i] == sender){
+			if(players[i].playerlogin == sender){
 				return players[i];
 			}
 		}
