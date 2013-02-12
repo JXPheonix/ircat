@@ -6,6 +6,7 @@ import org.jibble.pircbot.IrcException;
 import org.jibble.pircbot.NickAlreadyInUseException;
 
 import xphnx.ircat.bots.poker.PokerBot;
+import xphnx.ircat.bots.clever.CleverBot;
 
 public class Main {
 	
@@ -13,10 +14,9 @@ public class Main {
 		//Start a new bot handler
 		//BotHandler Hanley = new BotHandler();
 		
-		PokerBot pokerbot = new PokerBot("PokerShark");
-		pokerbot.connect("irc.freenode.net");
-		pokerbot.joinChannel("##poker");
-		pokerbot.joinChannel("#xphnx");
+		CleverBot bot = new CleverBot("PokerShark");
+		bot.connect("irc.freenode.net");
+		bot.joinChannel("#xphnx");
 	}
 
 }
